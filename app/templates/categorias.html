@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<section class="presentacion">
+    <h3>¡Bienvenido a Saint Wiki!</h3>
+    <form action="{{ url_for('personajes') }}" method="GET" class="search-box buscador">
+        <input type="search" name="q" id="q" placeholder="Buscar personaje...">
+        <button type="submit" class="btn-oculto">Buscar</button>
+    </form>
+</section>
+
+<main class="main-container">
+    <h2 class="section-title">Explorar el Universo por Categorías</h2>
+
+        <div class="categorias-grid">
+        {% for cat in categorias %}
+            <article class="categoria-card">
+                <div class="icon-placeholder">
+                    <img src="{{ url_for('static', filename='img/categorias/' + cat|lower + '.jpg') }}" 
+                         onerror="this.onerror=null; this.src='/static/img/{{ cat|lower }}.jpg';" 
+                         alt="Categoría {{ cat }}"
+                         style="width: 100%; height: 100%; object-fit: cover; border-radius: 8px;">
+                </div>
+                <h3>Saints de {{ cat }}</h3>
+                <a href="{{ url_for('personajes', categoria=cat) }}" class="btn-cat">Ver Caballeros</a>
+            </article>
+        {% endfor %}
+    </div>
+
+
+    <div class="volver-centro">
+        <a href="{{ url_for('index') }}" class="link-volver">← Volver al Inicio</a>
+    </div>
+</main>
+{% endblock %}

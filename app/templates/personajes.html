@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<main class="main-container">
+    <h2 class="section-title">
+        {% if request.args.get('categoria') %}
+            Caballeros de {{ request.args.get('categoria') }}
+        {% elif request.args.get('q') %}
+            Resultados para "{{ request.args.get('q') }}"
+        {% else %}
+            Todos los Personajes
+        {% endif %}
+    </h2>
+
+    {% if personajes %}
+        {% include 'tarjetas.html' %}
+    {% else %}
+        <p style="text-align: center; color: #7f8c8d; margin: 40px 0;">No se encontraron personajes.</p>
+    {% endif %}
+</main>
+{% endblock %}

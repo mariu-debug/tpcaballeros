@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<div class="main-container error-page">
+    <section class="presentacion-error">
+        <p class="etiqueta-error">Error 404</p>
+        <h1>Este personaje o página no existe</h1>
+        <p class="texto-error">Podés continuar explorando el archivo en otras páginas o personajes.</p>
+        <a class="boton-ver" href="{{ url_for('index') }}">Volver al Inicio</a>
+    </section>
+</div>
+{% endblock %}

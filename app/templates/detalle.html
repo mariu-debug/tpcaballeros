@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<section class="presentacion">
+    <h3>¡Bienvenido a Saint Wiki!</h3>
+    <form action="{{ url_for('personajes') }}" method="GET" class="search-box buscador">
+        <input type="search" name="q" id="q" placeholder="Buscar personaje...">
+        <button type="submit" class="btn-oculto">Buscar</button>
+    </form>
+</section>
+
+<main class="main-container detail-page">
+    <h2 class="detail-title">{{ personaje.nombre }}</h2>
+
+    <div class="descripcion-box-destacada">
+        <p>{{ personaje.descripcion }}</p>
+    </div>
+
+    <div class="detalle-flex-container">
+        <div class="personaje-banner-wrap">
+            <img src="/static/img/{{ personaje.id_categoria|lower }}/{{ personaje.imagen }}" 
+                 onerror="this.onerror=null; this.src='/static/img/{{ personaje.imagen }}';" 
+                 alt="{{ personaje.nombre }}">
+        </div>
+       
+
+        <div class="info-tecnica-lateral">
+            <table class="table-info">
+                <tbody>
+                    <tr>
+                        <th>Armadura</th>
+                        <td>{{ personaje.armadura }}</td>
+                    </tr>
+                    <tr>
+                        <th>Constelación</th>
+                        <td>{{ personaje.constelacion }}</td>
+                    </tr>
+                    <tr>
+                        <th>Procedencia</th>
+                        <td>{{ personaje.lugar_nacimiento }}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <div class="btn-back-container">
+                <a href="{{ url_for('index') }}" class="btn-back-link">Volver</a>
+            </div>
+        </div>
+    </div>
+</main>
+{% endblock %}

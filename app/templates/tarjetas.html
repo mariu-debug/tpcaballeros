@@ -1,0 +1,18 @@
+<div class="grilla">
+    {% for p in personajes %}
+    <article class="tarjeta">
+        <h2>{{ p.nombre }}</h2>
+        <div class="tarjeta-cuerpo">
+            <div class="tarjeta-img-placeholder">
+                <img src="/static/img/{{ p.id_categoria|lower }}/{{ p.imagen }}" 
+                     onerror="this.onerror=null; this.src='/static/img/{{ p.imagen }}';" 
+                     alt="{{ p.nombre }}">
+            </div>
+          
+            <div class="tarjeta-footer-btn">
+                <a class="boton-ver" href="{{ url_for('personaje', id_personaje=p.id) }}">Ver más</a>
+            </div>
+        </div>
+    </article>
+    {% endfor %}
+</div>

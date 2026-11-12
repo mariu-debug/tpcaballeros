@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titulo if titulo else 'Saint Seiya' }} - Universe</title>
+    <link rel="icon" href="{{ url_for('static', filename='/img/favicon/favicon.png') }}" type="image/x-icon">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    
+    <div class="barra-superior-gris"></div>
+
+   
+    <header class="cabecera">
+        <a class="marca" href="{{ url_for('index') }}">
+            <img src="{{ url_for('static', filename='/img/favicon/favicon.png') }}" alt="Logo Saint Seiya" class="logo-header">
+            <span>SAINT-SEIYA:<br>Universe</span>
+        </a>
+        
+        <nav>
+            <a href="{{ url_for('index') }}">INICIO</a>
+            <a href="{{ url_for('personajes') }}">PERSONAJES</a>
+            <a href="{{ url_for('categorias') }}">CATEGORIAS</a>
+        </nav>
+    </header>
+
+    {% block contenido %}
+    {% endblock %}
+
+
+    <footer class="footer-sitio">
+        <p>© 2026 Saint Wiki - Todos los derechos reservados</p>
+    </footer>
+</body>
+</html>
+
+        
+    

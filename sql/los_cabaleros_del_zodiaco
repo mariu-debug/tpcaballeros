@@ -1,0 +1,83 @@
+CREATE DATABASE caballeros_del_zodiaco
+
+CREATE TABLE categorias (
+    id_categoria INT AUTO_INCREMENT PRIMARY KEY,
+    nombre_categoria VARCHAR(40)
+);
+
+CREATE TABLE personajes (
+    id_personaje INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(40),
+    fecha_nacimiento VARCHAR(50), 
+    lugar_nacimiento VARCHAR(40),
+    descripcion TEXT,
+    genero VARCHAR(40),
+    edad INT,
+    peso DECIMAL(10,2),
+    altura DECIMAL(10,2),
+    maestro VARCHAR(40),
+    constelacion VARCHAR(40),
+    armadura VARCHAR(40),
+    imagen VARCHAR(150) ,
+    id_categoria INT ,
+    FOREIGN KEY (id_categoria) REFERENCES categorias(id_categoria)
+    );
+
+
+INSERT INTO categorias (nombre_categoria) VALUES 
+('Bronce'),
+('Plata'),
+('Oro'),
+('Otros');
+
+
+BRONCE
+INSERT INTO personajes (nombre, fecha_nacimiento, lugar_nacimiento, descripcion, genero, edad, peso, altura, maestro, constelacion, armadura, imagen, id_categoria) 
+VALUES 
+('Seiya de Pegaso', '1 de diciembre', 'Japón', 'El caballero de bronce principal, conocido por su tenacidad, valor y lealtad inquebrantable a Atenea.', 'Masculino', 13, 53.00, 1.65, 'Marin de Águila', 'Pegaso', 'Armadura de Pegaso', 'seiya_pegaso.jpg', 1), 
+('Shiryu de Dragón', '4 de octubre', 'Japón', 'Un caballero sabio y maduro, capaz de sacrificar su propia vida o vista para proteger a sus amigos.', 'Masculino', 14, 53.00, 1.72, 'Dohko de Libra', 'Dragón', 'Armadura de Dragón', 'shiryu_dragon.jpg', 1), 
+('Hyoga de Cisne', '23 de enero', 'Rusia', 'Caballero que domina las técnicas del hielo, marcado por el recuerdo de su difunta madre.', 'Masculino', 14, 56.00, 1.73, 'Camus de Acuario', 'Cisne', 'Armadura de Cisne', 'hyoga_cisne.jpg', 1), 
+('Shun de Andrómeda', '9 de septiembre', 'Japón', 'De alma pacífica y pura, prefiere evitar el combate, pero posee un cosmos destructivo cuando es necesario.', 'Masculino', 13, 51.00, 1.65, 'Albiore de Cefeo', 'Andrómeda', 'Armadura de Andrómeda', 'shun_andromeda.jpg', 1), 
+('Ikki de Fénix', '15 de agosto', 'Japón', 'El hermano mayor de Shun. Un guerrero solitario y extremadamente poderoso que regresa de las cenizas.', 'Masculino', 15, 62.00, 1.75, 'Guilty', 'Fénix', 'Armadura de Fénix', 'ikki_fenix.jpg', 1), 
+('Jabu de Unicornio', '3 de noviembre', 'Japón', 'Caballero de bronce que inicialmente rivalizaba con Seiya por demostrar su total devoción a Saori Kido.', 'Masculino', 13, 55.00, 1.65, 'Desconocido', 'Unicornio', 'Armadura de Unicornio', 'jabu_unicornio.jpg', 1), 
+('Geki de Oso', '15 de mayo', 'Japón', 'Destaca por su inmensa fuerza física, entrenado en Canadá estrangulando osos salvajes con sus manos.', 'Masculino', 15, 102.00, 1.88, 'Desconocido', 'Osa Mayor', 'Armadura de Oso', 'geki_oso.jpg', 1), 
+('Ichi de Hidra', '10 de febrero', 'Japón', 'Utiliza garras venenosas que se regeneran infinitamente desde su armadura para desgastar a sus rivales.', 'Masculino', 14, 56.00, 1.70, 'Desconocido', 'Hidra', 'Armadura de Hidra', 'ichi_hidra.jpg', 1), 
+('Nachi de Lobo', '20 de julio', 'Japón', 'Líder interino de los caballeros de bronce secundarios, entrenado en los paisajes de Liberia.', 'Masculino', 14, 57.00, 1.71, 'Desconocido', 'Lobo', 'Armadura de Lobo', 'nachi_lobo.jpg', 1);
+
+PLATA
+INSERT INTO personajes (nombre, fecha_nacimiento, lugar_nacimiento, descripcion, genero, edad, peso, altura, maestro, constelacion, armadura, imagen, id_categoria) 
+VALUES 
+('Marin de Águila', '23 de diciembre', 'Japón', 'Maestra de Seiya en el Santuario. Una guerrera enigmática, estricta pero profundamente protectora.', 'Femenino', 16, 51.00, 1.67, 'Desconocido', 'Águila', 'Armadura de Águila', 'marin_aguila.jpg', 2), 
+('Shaina de Ofiuco', '24 de marzo', 'Italia', 'Una de las guerreras más fuertes del Santuario. Inicialmente enemiga jurada de Seiya, luego aliada clave.', 'Femenino', 16, 49.00, 1.66, 'Desconocido', 'Ofiuco', 'Armadura de Ofiuco', 'shaina_ofiuco.jpg', 2), 
+('Misty de Lagarto', '11 de octubre', 'Francia', 'El primer caballero de plata enviado a eliminar a los de bronce. Extremadamente narcisista y orgulloso.', 'Masculino', 16, 68.00, 1.80, 'Desconocido', 'Lagarto', 'Armadura de Lagarto', 'misty_lagarto.jpg', 2), 
+('Algol de Perseo', '11 de noviembre', 'Arabia Saudita', 'Posee el temible Escudo de Medusa, capaz de petrificar a cualquiera que lo mire directamente.', 'Masculino', 17, 83.00, 1.83, 'Desconocido', 'Perseo', 'Armadura de Perseo', 'algol_perseo.jpg', 2), 
+('Jamian de Cuervo', '27 de julio', 'Reino Unido', 'Controla bandadas de cuervos para atacar y secuestrar. Fue el encargado de raptar a Saori Kido.', 'Masculino', 17, 56.00, 1.66, 'Desconocido', 'Cuervo', 'Armadura de Cuervo', 'jamian_cuervo.jpg', 2), 
+('Dante de Cerbero', '29 de marzo', 'Italia', 'Guerrero despiadado que utiliza pesadas cadenas con bolas de picos de acero para destrozar a sus enemigos.', 'Masculino', 17, 93.00, 1.85, 'Desconocido', 'Cerbero', 'Armadura de Cerbero', 'dante_cerbero.jpg', 2), 
+('Capella de Auriga', '21 de agosto', 'Grecia', 'Combate lanzando los discos afilados de su armadura como bumeranes letales guiados por su cosmos.', 'Masculino', 17, 80.00, 1.83, 'Desconocido', 'Auriga', 'Armadura de Auriga', 'capella_auriga.jpg', 2), 
+('Moisés de Ballena', '2 de agosto', 'Nueva Zelanda', 'Un caballero de inmenso tamaño físico que utiliza la fuerza bruta y corrientes de aire devastadoras.', 'Masculino', 17, 130.00, 2.05, 'Desconocido', 'Ballena', 'Armadura de Ballena', 'moises_ballena.jpg', 2), 
+('Asterion de Perros de Caza', '20 de febrero', 'Dinamarca', 'Posee la habilidad mental de leer los pensamientos y las estrategias de sus oponentes en combate.', 'Masculino', 16, 75.00, 1.83, 'Desconocido', 'Perros de Caza', 'Armadura de Perros de Caza', 'asterion_perros_caza.jpg', 2), 
+('Babel de Centauro', '20 de febrero', 'Irak', 'Capaz de generar y manipular llamas ardientes gracias a la fricción de su cosmos y su armadura.', 'Masculino', 17, 80.00, 1.85, 'Desconocido', 'Centauro', 'Armadura de Centauro', 'babel_centauro.jpg', 2), 
+('Ptolemy de Flecha', '16 de junio', 'Libia', 'El caballero que inició la batalla de las doce casas al clavarle una flecha dorada fantasma en el pecho a Saori.', 'Masculino', 16, 74.00, 1.80, 'Desconocido', 'Flecha', 'Armadura de Flecha', 'ptolemy_flecha.jpg', 2), 
+('Albiore de Cefeo', '2 de octubre', 'Argentina', 'Maestro de Shun. Un caballero de plata con un poder y rectitud comparables a los de un caballero de oro.', 'Masculino', 19, 89.00, 1.87, 'Desconocido', 'Cefeo', 'Armadura de Cefeo', 'albiore_cefeo.jpg', 2);
+
+ORO
+INSERT INTO personajes (nombre, fecha_nacimiento, lugar_nacimiento, descripcion, genero, edad, peso, altura, maestro, constelacion, armadura, imagen, id_categoria) 
+VALUES 
+('Mu de Aries', '27 de marzo', 'Tíbet', 'Caballero pacífico y sabio, único con la habilidad de reparar las armaduras dañadas gracias a las técnicas de su maestro.', 'Masculino', 20, 75.00, 1.82, 'Shion de Aries', 'Aries', 'Armadura de Oro de Aries', 'mu_de_aries.jpg', 3), 
+('Aldebarán de Tauro', '8 de mayo', 'Brasil', 'Posee una fuerza física colosal y un gran sentido del honor; defiende su casa adoptando una postura de combate inquebrantable.', 'Masculino', 20, 130.00, 2.10, 'Desconocido', 'Tauro', 'Armadura de Oro de Tauro', 'aldebaran_de_tauro.jpg', 3), 
+('Saga de Géminis', '30 de mayo', 'Grecia', 'Un guerrero de poder devastador atormentado por una doble personalidad: un ángel de justicia y un demonio ambicioso.', 'Masculino', 28, 87.00, 1.88, 'Desconocido', 'Géminis', 'Armadura de Oro de Géminis', 'saga_de_geminis.jpg', 3), 
+('Deathmask de Cáncer', '24 de junio', 'Italia', 'Cruel y despiadado, adorna las paredes de su templo con los rostros de sus víctimas y cree firmemente que el poder define la justicia.', 'Masculino', 23, 82.00, 1.84, 'Desconocido', 'Cáncer', 'Armadura de Oro de Cáncer', 'deathmask_cancer.jpg', 3), 
+('Aioria de Leo', '16 de agosto', 'Grecia', 'Hermano menor de Aioros. Impulsivo, noble y de un corazón puro, ataca a la velocidad de la luz para limpiar el honor de su sangre.', 'Masculino', 20, 85.00, 1.85, 'Aioros de Sagitario', 'Leo', 'Armadura de Oro de Leo', 'aioria_de_leo.jpg', 3), 
+('Shaka de Virgo', '19 de septiembre', 'India', 'Considerado el hombre más cercano a Dios. Mantiene sus ojos cerrados para acumular un cosmos infinito y juzgar con absoluta frialdad.', 'Masculino', 20, 68.00, 1.82, 'Desconocido', 'Virgo', 'Armadura de Oro de Virgo', 'shaka_de_virgo.jpg', 3), 
+('Dohko de Libra', '20 de octubre', 'China', 'Sobreviviente de la anterior guerra santa. Custodia el sello de Hades en los cinco picos mientras vigila el equilibrio del mundo.', 'Masculino', 261, 79.00, 1.70, 'Desconocido', 'Libra', 'Armadura de Oro de Libra', 'dohko_de_libra.jpg', 3), 
+('Milo de Escorpio', '8 de noviembre', 'Grecia', 'Un guerrero orgulloso, sumamente leal al Santuario, que otorga a sus rivales la oportunidad de rendirse antes de aplicar la Aguja Escarlata.', 'Masculino', 20, 84.00, 1.85, 'Desconocido', 'Escorpio', 'Armadura de Oro de Escorpio', 'milo_de_escorpio.jpg', 3), 
+('Aioros de Sagitario', '13 de mayo', 'Grecia', 'El héroe legendario que sacrificó su vida para rescatar a la bebé Atenea, dejando sus ideales grabados en las paredes de su templo.', 'Masculino', 14, 85.00, 1.87, 'Desconocido', 'Sagitario', 'Armadura de Oro de Sagitario', 'aioros_de_sagitario.jpg', 3), 
+('Shura de Capricornio', '12 de enero', 'España', 'Poseedor de la espada sagrada Excalibur en sus extremidades. Su rectitud y devoción lo llevan a ser el brazo armado de la justicia.', 'Masculino', 23, 83.00, 1.86, 'Desconocido', 'Capricornio', 'Armadura de Oro de Capricornio', 'shura_de_capricornio.jpg', 3), 
+('Camus de Acuario', '7 de febrero', 'Francia', 'Maestro del cero absoluto. Oculta sus emociones bajo una fachada de hielo para enseñar a sus alumnos a combatir con fría racionalidad.', 'Masculino', 20, 76.00, 1.84, 'Desconocido', 'Acuario', 'Armadura de Oro de Acuario', 'camus_de_acuario.jpg', 3), 
+('Afrodita de Piscis', '10 de marzo', 'Suecia', 'El caballero cuya belleza brilla entre el cielo y la tierra. Utiliza rosas envenenadas y letales para custodiar el último templo.', 'Masculino', 22, 72.00, 1.83, 'Desconocido', 'Piscis', 'Armadura de Oro de Piscis', 'afrodita_de_piscis.jpg', 3);
+
+
+OTROS
+INSERT INTO personajes (nombre, fecha_nacimiento, lugar_nacimiento, descripcion, genero, edad, peso, altura, maestro, constelacion, armadura, imagen, id_categoria) 
+VALUES 
+('Saori Kido (Atena)', '1 de septiembre', 'Santuario, Grecia', 'La reencarnación de la diosa de la sabiduría y la guerra justa. Gobierna la Tierra y guía a sus caballeros con un amor infinito hacia la humanidad.', 'Femenino', 13, 44.00, 1.55, 'Ninguno', 'Ninguna', 'Armadura Divina de Atena', 'athena2.jpg', 4);

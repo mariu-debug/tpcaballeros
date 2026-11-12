@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block contenido %}
+<section class="presentacion">
+    <h3>¡Bienvenido a Saint Wiki!</h3>
+    <form action="{{ url_for('personajes') }}" method="GET" class="search-box buscador">
+        <label for="q" class="sr-only">Nombre del personaje</label>
+        <input type="search" name="q" id="q" placeholder="Buscar personaje...">
+        <button type="submit" class="btn-oculto">Buscar</button>
+    </form>
+</section>
+
+<main class="main-container">
+    <div class="banner">
+        <img src="{{ url_for('static', filename='img/banner/banner.jpg') }}" alt="Banner Los Caballeros del Zodiaco">
+    </div>
+
+    <p class="intro-text">
+        Un joven japonés de trece años llamado Seiya fue forzado a separarse de su hermana Seika, con el motivo de entrenar en el Santuario para obtener la Cloth de Pegasus, una de las ochenta y ocho constelaciones protectoras para los guerreros llamados Saints. Luego de obtener su Cloth, él regresa a Japón para ver a su hermana, pero se entera que desapareció durante su entrenamiento en el Santuario. Al encontrarse con Saori Kido, la nieta de Mitsumasa Kido, el hombre que enviaba a los huérfanos para entrenar y obtener sus respectivas Cloths a distintas partes del mundo, Seiya hace un trato con ella; si él participaba en el Galaxian Wars, Saori comenzaría una búsqueda para buscar a la hermana de Seiya, y como premio si gana en el torneo, ganaría la Gold Cloth de Sagittarius. Durante el transcurso del torneo, el mismo es interrumpido violentamente por Ikki de Phoenix. Seiya se encuentra con nuevos amigos y rivales para pelear el uno contra el otro contra el mal.
+    </p>
+
+    <h3 class="section-title">Categorías Principales</h3>
+    <nav class="categorias">
+        {% for cat in categorias %}
+            <a href="{{ url_for('personajes', categoria=cat) }}" class="btn-cat">{{ cat }}</a>
+        {% endfor %}
+    </nav>
+
+    <h3 class="section-title">Personajes Destacados</h3>
+    {% include 'tarjetas.html' %}
+</main>
+{% endblock %}
